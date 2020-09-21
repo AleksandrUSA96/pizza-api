@@ -249,6 +249,6 @@ app.get('/profile', verifyMiddleware, (req, res) => {
     });
 });
 
-app.listen(3306, function () {
+app.listen(3001, function () {
     console.log('API app started!');
 });
