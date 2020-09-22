@@ -2,7 +2,7 @@ const menuItems = {
     items: [
         {
             id: 1,
-            img: 'http://localhost:3001/images/1.jpeg',
+            img: 'https://rest-api-pizza.herokuapp.com/images/1.jpeg',
             name: 'American Hot Pizza',
             description: 'Pepperoni, onion, hot chilli, and green pepper',
             priceEuro: '2',
@@ -10,7 +10,7 @@ const menuItems = {
         },
         {
             id: 2,
-            img: 'http://localhost:3001/images/pizza.jpg',
+            img: 'https://rest-api-pizza.herokuapp.com/images/pizza.jpg',
             name: 'Carbonara',
             description: 'Bacon, cheddar and parmesan cheese, mozzarella, cherry tomatoes, red onion, garlic, cream sauce, Italian herbs',
             priceEuro: '3',
@@ -18,7 +18,7 @@ const menuItems = {
         },
         {
             id: 3,
-            img: 'http://localhost:3001/images/2.png',
+            img: 'https://rest-api-pizza.herokuapp.com/images/2.png',
             name: 'Pepperoni',
             description: 'Spicy salami with mozzarella, tomato, chili flakes',
             priceEuro: '5',
@@ -26,7 +26,7 @@ const menuItems = {
         },
         {
             id: 4,
-            img: 'http://localhost:3001/images/3.jpeg',
+            img: 'https://rest-api-pizza.herokuapp.com/images/3.jpeg',
             name: 'Chicken BBQ',
             description: 'Extra chicken, mozzarella, bacon, red onions, bbq sauce',
             priceEuro: '7.8',
@@ -34,7 +34,7 @@ const menuItems = {
         },
         {
             id: 5,
-            img: 'http://localhost:3001/images/4.jpeg',
+            img: 'https://rest-api-pizza.herokuapp.com/images/4.jpeg',
             name: 'American Hot',
             description: 'Jalapeno peppers, mozzarella, marinara sauce, pepperoni, red onions',
             priceEuro: '5.6',
@@ -42,7 +42,7 @@ const menuItems = {
         },
         {
             id: 6,
-            img: 'http://localhost:3001/images/5.jpg',
+            img: 'https://rest-api-pizza.herokuapp.com/images/5.jpg',
             name: 'Farmhouse',
             description: 'Marinara sauce, mushrooms, extra mozzarella, ham',
             priceEuro: '6.6',
@@ -50,7 +50,7 @@ const menuItems = {
         },
         {
             id: 7,
-            img: 'http://localhost:3001/images/6.jpg',
+            img: 'https://rest-api-pizza.herokuapp.com/images/6.jpg',
             name: 'Hawaiian',
             description: 'Ham, extra mozzarella, marinara sauce, pineapple',
             priceEuro: '8.4',
@@ -58,7 +58,7 @@ const menuItems = {
         },
         {
             id: 8,
-            img: 'http://localhost:3001/images/7.jpg',
+            img: 'https://rest-api-pizza.herokuapp.com/images/7.jpg',
             name: 'Tuna Melt',
             description: 'Sweet corn, red onions, tuna, mozzarella, marinara sauce',
             priceEuro: '7.1',
