@@ -1,1 +1,5 @@
 node_modules/
+dbConnect.js
+configTwilio.js
+nodemailer.js
+.idea/
