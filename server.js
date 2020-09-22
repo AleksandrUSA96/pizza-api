@@ -1,29 +1,20 @@
 const express = require('express');
 const jwt = require('jsonwebtoken');
-const mysql = require('mysql');
 const bodyParser = require('body-parser');
 const configTwilio = require('./configTwilio');
 const verifyMiddleware = require('./verify.middleware');
 const client = require('twilio')(configTwilio.accountSID, configTwilio.authToken);
 const sentOrderMail = require('./nodemailer');
-const menuItems = require('./menu')
+const menuItems = require('./menu');
+const conn = require('./dbConnect');
 
 let app = express();
 
-const conn = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    database: 'node_pizza',
-    password: ''
-});
 
-conn.connect(err => {
-    if (err) {
-        console.log(err);
-        return err;
-    } else {
-        console.log('Database ----> ok? ...ok.');
-    }
+const PORT = process.env.PORT || 3306;
+
+app.listen(3001, function () {
+    console.log('API app started!');
 });
 
 app.use(bodyParser.json());
@@ -44,7 +35,7 @@ app.use((req, res, next) => {
 app.use(express.static('public'));
 
 app.get('/', function (req, res) {
-    res.send('Чё надо? Чё пришел? Я тут работаю! Закрыл меня карасиком и беса не гони!');
+    res.send('Welcome!');
 });
 
 
@@ -68,8 +59,6 @@ app.post('/create-order', function (req, res) {
                 [user.tel, user.name, user.sureName, user.email, user.address], function (err, data) {
                     if (err) {
                         return console.log(err);
-                    } else {
-                        console.log('хожу сюда раз')
                     }
                 });
         } else if (data[0].tel !== user.tel) {
@@ -77,8 +66,6 @@ app.post('/create-order', function (req, res) {
                 [user.tel, user.name, user.sureName, user.email, user.address], function (err, data) {
                     if (err) {
                         return console.log(err);
-                    } else {
-                        console.log('хожу сюда два')
                     }
                 });
         } else {
@@ -86,7 +73,6 @@ app.post('/create-order', function (req, res) {
                 [user.name, user.sureName, user.email, user.address, user.tel], function (error, data) {
                     if (error) throw error;
                 })
-            console.log('хожу сюда три');
         }
     });
 
@@ -244,11 +230,7 @@ app.get('/profile', verifyMiddleware, (req, res) => {
     let telDb = req.user.id;
     console.log(telDb);
     conn.query("SELECT * FROM orders WHERE tel = ?", [telDb], function (err, data) {
-        const token = jwt.sign({id: telDb}, configTwilio.authToken, {expiresIn: "1h"});
+        // const token = jwt.sign({id: telDb}, configTwilio.authToken, {expiresIn: "1h"});
         return res.json(data);
     });
-});
-
-app.listen(3001, function () {
-    console.log('API app started!');
 });

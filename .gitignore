@@ -1,2 +1,4 @@
 node_modules/
 configTwilio.js
+dbConnect.js
+nodemailer.js
